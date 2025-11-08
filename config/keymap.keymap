@@ -20,9 +20,19 @@
             bindings = <
 &none                    &none       &none     &none     &none             &none                                    &none        &none  &none      &none    &none        &none
 &kp TAB                  &kp Q       &kp W     &kp E     &kp R             &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
-&mt LCTRL ENTER          &kp A       &kp S     &kp D     &kp F             &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 1 ENTER  &kp SEMI
+&mt LCTRL ENTER          &kp A       &kp S     &kp D     &kp F             &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
 &mt LSHFT BACKSPACE      &kp Z       &kp X     &kp C     &kp V             &kp B            &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
-&mt LS(LCTRL) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 1 LANGUAGE_1  &mt LCTRL SPACE  &lt 2 LBRC  &lt 1 RBRC  &lt 2 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
+&mt LS(LCTRL) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 2 LANGUAGE_1  &mt LCTRL SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&none                       &none       &none     &none     &none             &none                                       &none        &none  &none      &none    &none        &none
+&kp TAB                     &kp Q       &kp W     &kp E     &kp R             &kp T                                       &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
+&mt LCTRL ENTER             &kp A       &kp S     &kp D     &kp F             &kp G               &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
+&mt LSHFT BACKSPACE         &kp Z       &kp X     &kp C     &kp V             &kp B               &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
+&mt LS(LEFT_GUI) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 2 LANGUAGE_1  &mt LEFT_GUI SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
             >;
         };
 
@@ -71,8 +81,8 @@
         compatible = "zmk,conditional-layers";
 
         layer3 {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <2 3>;
+            then-layer = <4>;
         };
     };
 };
