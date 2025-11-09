@@ -93,15 +93,11 @@
 };　//マウスキーを押したらタイムアウトを10秒延長
 
 &zip_temp_layer {
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <200>; //キー入力中にトラボに触った時の誤爆防止
     excluded-positions = <
-        18 // J
-        19 // K
-        21 // ;
-        34 // Ctrl
-    >;
-};　//「非マウスキーを押したらタイムアウトに関係なくマウスレイヤーを抜ける」の除外
-
+        33 34 35 19 21 36 28 38 52 57
+    >;　//「非マウスキーを押したらタイムアウトに関係なくマウスレイヤーを抜ける」の除外
+};　
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
