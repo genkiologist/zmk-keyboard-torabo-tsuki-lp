@@ -11,6 +11,11 @@
             bindings = <&kp LSHIFT>;
             key-positions = <23>;
         };
+
+        test {
+            bindings = <&none>;
+            key-positions = <33>;
+        };
     };
 
     behaviors {
@@ -27,11 +32,11 @@
 
         WinLayer {
             bindings = <
-&none                    &none       &none     &none     &none          &none                                    &none        &none  &none      &none    &none        &none
-&kp TAB                  &kp Q       &kp W     &kp E     &kp R          &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
-&mt LCTRL ENTER          &kp A       &kp S     &kp D     &kp F          &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
-&mt LSHFT BACKSPACE      &kp Z       &kp X     &kp C     &kp V          &kp B            &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
-&mt LS(LCTRL) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &new_behavior  &mt LCTRL SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
+&none                    &none       &none     &none     &none             &none                                    &none        &none  &none      &none    &none        &none
+&kp TAB                  &kp Q       &kp W     &kp E     &kp R             &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
+&mt LCTRL ENTER          &kp A       &kp S     &kp D     &kp F             &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
+&mt LSHFT BACKSPACE      &kp Z       &kp X     &kp C     &kp V             &kp B            &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
+&mt LS(LCTRL) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 2 LANGUAGE_1  &mt LCTRL SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
             >;
         };
 
@@ -45,7 +50,7 @@
             >;
         };
 
-        MouseLayer {
+        ShortCutLayer {
             bindings = <
 &trans  &trans     &trans     &trans     &trans     &trans                     &trans     &trans     &trans          &trans       &trans        &trans
 &trans  &kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(R)  &kp LG(T)                  &kp LG(Y)  &mkp MB4   &msc SCRL_UP    &mkp MB5     &kp LG(P)     &kp LG(MINUS)
@@ -72,6 +77,16 @@
 &trans  &kp LA(NUMBER_6)  &kp LA(N7)        &kp LA(N8)        &kp LA(NUMBER_9)  &kp LA(N0)  &kp F16  &kp F17  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
 &trans  &bt BT_SEL 0      &bt BT_NXT        &bt BT_NXT        &kp F13           &kp F14     &kp F15  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
 &trans  &trans            &trans            &trans            &trans            &trans      &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans
+            >;
+        };
+
+        MouseLayer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB4   &trans     &mkp MB5   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &to 6   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
             >;
         };
 
