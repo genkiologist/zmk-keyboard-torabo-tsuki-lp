@@ -88,10 +88,6 @@
     };
 
 //マウス関連
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer 5 10000>;
-};　//マウスキーを押したらタイムアウトを10秒延長
-
 &zip_temp_layer {
     require-prior-idle-ms = <200>; //キー入力中にトラボに触った時の誤爆防止
     excluded-positions = <
