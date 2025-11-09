@@ -11,11 +11,6 @@
             bindings = <&kp LSHIFT>;
             key-positions = <23>;
         };
-
-        test {
-            bindings = <&none>;
-            key-positions = <33 34 35 19 21 36 28 38 52 57>;
-        };
     };
 
     behaviors {
@@ -84,7 +79,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB4   &trans     &mkp MB5   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &to 6   &trans
+&trans  &trans  &trans  &trans  &to 6   &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &to 6   &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
             >;
