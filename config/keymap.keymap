@@ -14,7 +14,7 @@
 
         test {
             bindings = <&none>;
-            key-positions = <33>;
+            key-positions = <33 34 35 19 21>;
         };
     };
 
