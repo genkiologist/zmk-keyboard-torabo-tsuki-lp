@@ -87,10 +87,32 @@
         compatible = "zmk,cdc-acm-bootloader-trigger";
     };
 
+//マウス関連
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 5 10000>;
+};　//マウスキーを押したらタイムアウトを10秒延長
+
+&zip_temp_layer {
+    require-prior-idle-ms = <200>;
+    excluded-positions = <
+        18 // J
+        19 // K
+        21 // ;
+        34 // Ctrl
+    >;
+};　//「非マウスキーを押したらタイムアウトに関係なくマウスレイヤーを抜ける」の除外
+
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        scroller {
+            layers = <6>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        }; //スクロールレイヤーを６に設定
+        input-processors = <&zip_temp_layer 5 10000>; //トラボを触るとマウスレイヤーに移動
     };
+
+//マウス関連終わり
 
     vbatt: vbatt {
         // Disable default battery monitoring
