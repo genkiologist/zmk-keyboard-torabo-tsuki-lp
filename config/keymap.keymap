@@ -28,31 +28,21 @@
 
         WinLayer {
             bindings = <
-&none                    &none       &none     &none     &none             &none                                    &none        &none  &none      &none    &none        &none
-&kp TAB                  &kp Q       &kp W     &kp E     &kp R             &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
-&mt LCTRL ENTER          &kp A       &kp S     &kp D     &kp F             &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
-&mt LSHFT BACKSPACE      &kp Z       &kp X     &kp C     &kp V             &kp B            &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
-&mt LS(LCTRL) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 2 LANGUAGE_1  &mt LCTRL SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
-            >;
-        };
-
-        MacLayer {
-            bindings = <
-&none                       &none       &none     &none     &none             &none                                       &none        &none  &none      &none    &none        &none
-&kp TAB                     &kp Q       &kp W     &kp E     &kp R             &kp T                                       &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
-&mt LCTRL ENTER             &kp A       &kp S     &kp D     &kp F             &kp G               &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
-&mt LSHFT BACKSPACE         &kp Z       &kp X     &kp C     &kp V             &kp B               &kp LS(N8)  &kp LS(N9)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH    &mt LS(RSHFT) BACKSLASH
-&mt LS(LEFT_GUI) BACKSPACE  &kp ESCAPE  &kp LGUI  &kp LALT  &lt 2 LANGUAGE_1  &mt LEFT_GUI SPACE  &lt 3 LBRC  &lt 2 RBRC  &lt 3 LANG2  &none  &none      &none    &kp K_APP    &kp DEL
+&none         &none       &none     &none     &none        &none                                    &none        &none  &none      &none    &none        &none
+&kp TAB       &kp Q       &kp W     &kp E     &kp R        &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P        &kp MINUS
+&kp LCTRL     &kp A       &kp S     &kp D     &kp F        &kp G            &none       &none       &kp H        &kp J  &kp K      &kp L    &lt 2 ENTER  &kp SEMI
+&kp LSHFT     &kp Z       &kp X     &kp C     &kp V        &kp B            &kp LPAR    &kp RPAR    &kp N        &kp M  &kp COMM   &kp DOT  &kp FSLH     &kp BSLH
+&kp BSPC      &kp DEL     &kp LGUI  &kp LALT  &lt 2 LANG1  &mt LCTRL SPACE  &kp LBRC    &kp RBRC    &lt 3 LANG2  &none  &none      &none    &kp ESC      &kp DEL
             >;
         };
 
         ShortCutLayer {
             bindings = <
-&trans  &trans     &trans     &trans     &trans     &trans                     &trans     &trans     &trans          &trans       &trans        &trans
-&trans  &kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(R)  &kp LG(T)                  &kp LG(Y)  &mkp MB4   &msc SCRL_UP    &mkp MB5     &kp LG(P)     &kp LG(MINUS)
-&trans  &kp LG(A)  &kp LG(S)  &kp LG(D)  &kp LG(F)  &kp LG(G)  &trans  &trans  &kp LG(J)  &mkp LCLK  &mkp MCLK       &mkp RCLK    &trans        &kp LG(COLON)
-&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LG(B)  &trans  &trans  &kp LG(N)  &kp LG(M)  &msc SCRL_DOWN  &kp LG(DOT)  &kp LG(FSLH)  &kp LG(BACKSLASH)
-&trans  &trans     &trans     &trans     &trans     &trans     &trans  &trans  &trans     &trans     &trans          &trans       &trans        &trans
+&trans  &trans     &trans        &trans        &trans          &trans                      &trans     &trans     &trans          &trans       &trans        &trans
+&trans  &kp LG(Q)  &kp LG(W)     &kp LA(UP)    &kp LG(R)       &kp LG(T)                  &kp LG(Y)  &mkp MB4   &msc SCRL_UP    &mkp MB5     &kp LG(P)     &kp LG(MINUS)
+&trans  &kp LG(A)  &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(RGHT)    &kp LG(G)  &trans  &trans  &kp LG(J)  &mkp LCLK  &mkp MCLK       &mkp RCLK    &trans        &trans
+&trans  &kp LG(Z)  &kp LG(X)     &kp LG(C)     &kp LG(V)       &kp LG(B)  &trans  &trans  &kp LG(N)  &kp LG(M)  &msc SCRL_DOWN  &kp LG(DOT)  &kp LG(FSLH)  &kp LG(BACKSLASH)
+&trans  &trans     &trans        &trans        &trans          &trans     &trans  &trans  &trans     &trans     &trans          &trans       &trans        &trans
             >;
         };
 
@@ -68,11 +58,11 @@
 
         FuncLayer {
             bindings = <
-&trans  &trans            &trans            &trans            &trans            &trans                        &trans   &trans   &trans   &trans   &trans   &trans
-&trans  &kp LA(NUMBER_1)  &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)  &kp LA(F5)                    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
-&trans  &kp LA(NUMBER_6)  &kp LA(N7)        &kp LA(N8)        &kp LA(NUMBER_9)  &kp LA(N0)  &kp F16  &kp F17  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
-&trans  &bt BT_SEL 0      &bt BT_NXT        &bt BT_NXT        &kp F13           &kp F14     &kp F15  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
-&trans  &trans            &trans            &trans            &trans            &trans      &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans
+&trans  &trans            &trans            &trans            &trans                                  &trans    &trans   &trans   &trans   &trans   &trans   &trans
+&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)  &kp LA(N4)        &kp LA(N5)                              &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
+&trans  &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)        &kp LA(N0)      &trans      &trans      &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
+&trans  &bt BT_SEL 0      &bt BT_NXT        &bt BT_NXT        &kp F13         &kp F14     &kp F15     &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22
+&trans  &trans            &trans            &trans            &trans          &trans      &trans      &trans   &trans   &trans   &trans   &trans   &trans   &trans
             >;
         };
 
@@ -89,8 +79,8 @@
         ScrollLayer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB4   &trans     &mkp MB5   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
             >;
