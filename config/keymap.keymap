@@ -63,7 +63,7 @@
         layer_6 { //Mouse
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB4  &msc SCRL_UP    &mkp MB5  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB1  &myKC MCLK 7　 &mkp MB2  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB1  &mkp MB3　 &mkp MB2  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_DOWN  &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans    &trans  &trans
             >;
@@ -79,22 +79,4 @@
 
     };
 };
-/ {
-    behaviors {
-        // カスタムホールドタップ動作を定義
-        myKC: myKC {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_MOUSE";
-            // タップ時のバインディングとホールド時のバインディング
-            bindings = <&mkp>, <&mo>;
-            // binding-cellsは、bindingsで指定したビヘイビアが必要とするセルの数を合わせる
-            // &mkp は <1>、&mo は <1> なので、合計 <2>
-            #binding-cells = <2>;
-            // hold-preferred フレーバーにより、ホールド動作を優先し、
-            // タップ動作（マウスボタン）は他のキーとの組み合わせでのみ発生するようにする
-            flavor = "hold-preferred";
-            // タッピングターム (長押しと短押しの境目) を調整
-            tapping-term-ms = <200>;
-        };
-    };
-};
+
