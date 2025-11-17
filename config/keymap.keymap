@@ -63,7 +63,7 @@
         layer_6 { //Mouse
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB4  &msc SCRL_UP    &mkp MB5  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB1  &mkp MB3        &mkp MB2  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &mkp MB1  &lt 6 MBTN3     &mkp MB2  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_DOWN  &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans    &trans  &trans
             >;
