@@ -10,10 +10,10 @@
 
         layer_0 { //windows
             bindings = <
-&kp TAB    &kp Q      &kp W     &kp E     &kp R     &kp T                                                          &kp Y        &kp U     &kp I      &kp O     &kp P                 &kp BSPC
-&kp CAPS   &kp A      &kp S     &kp D     &kp F     &kp G                                                          &kp H        &kp J     &kp K      &kp L     &kp SEMI              &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B        &kp SPACE                  &kp RET                &kp N        &kp M     &kp COMMA  &kp DOT   &mt RSHFT FSLH        &kp RSHFT
-&kp LCTRL  &kp LCTRL  &kp LGUI  &kp LALT  &kp BSPC  &lt 2 SPACE  &mt LSHFT LANG1            &mt RSHFT LANG2        &none        &none     &none      &none     &kp RCTRL             &kp RCTRL
+&kp TAB          &kp Q      &kp W     &kp E     &kp R       &kp T                                                  &kp Y       &kp U     &kp I      &kp O     &kp P      &kp BSPC
+&mt LCTRL ENTER  &kp A      &kp S     &kp D     &kp F       &kp G                                                  &kp H       &kp J     &kp K      &kp L     &kp SEMI   &kp SQT
+&kp LSHFT        &kp Z      &kp X     &kp C     &kp V       &kp B            &kp LBKT           &kp RBKT           &kp N       &kp M     &kp COMMA  &kp DOT   &kp FSLH   &mt RSHFT BSLH
+&kp BSPC         &kp DEL    &kp LGUI  &kp LALT  &lt 1 int5  &mt LCTRL SPACE  &mt LSHFT KP_LPAR  &mt RSHFT KP_LPAR  &lt 1 int4  &none     &none      &none     &kp ESC    &kp DEL
             >;
         };
 
