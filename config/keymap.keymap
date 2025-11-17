@@ -39,7 +39,7 @@
             bindings = <
 &trans  &kp N1     &kp N2    &kp N3     &kp N4     &kp N5                    &kp PGUP  &mc LALT LEFT  &kp UP     &mc LALT RIGHT  &kp AT_SIGN &sk AT_SIGN
 &trans  &kp N6     &kp N7    &kp N8     &kp N9     &kp N0                    &kp HOME  &kp LEFT       &kp DOWN   &kp RIGHT       &trans      &kp END
-&trans  &sk MINUS  &sk SEMI  &kp MINUS  &sk COLON  &kp FSLH  &trans  &trans  &kp PGDN  &kp DQT        &trans     &trans          &kp TILDE2  &kp CALET
+&trans  &sk MINUS  &sk SEMI  &kp MINUS  &sk COLON  &kp FSLH  &trans  &trans  &kp PGDN  &kp DQT        &trans     &trans          &kp TILDE  &kp CARET
 &trans  &trans     &trans    &trans     &trans     &trans    &trans  &trans  &trans    &trans         &trans     &trans          &trans      &trans
             >;
         };
