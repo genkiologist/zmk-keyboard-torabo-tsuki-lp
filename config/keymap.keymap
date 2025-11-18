@@ -2,16 +2,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-
 / {
-keymap {
+    keymap {
         compatible = "zmk,keymap";
 
         Win {
             bindings = <
 &kp TAB          &kp Q    &kp W     &kp E     &kp R             &kp T                                                         &kp Y             &kp U  &kp I      &kp O    &kp P        &kp MINUS
 &mt LCTRL ENTER  &kp A    &kp S     &kp D     &kp F             &kp G                                                         &kp H             &kp J  &kp K      &kp L    &lt 7 ENTER  &kp COLON
-&kp LSHFT        &kp Z    &kp X     &kp C     &kp V             &kp B            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N             &kp M  &kp COMMA  &kp DOT  &kp FSLH     &mt LSHIFT BSLH
+&kp LSHFT        &kp Z    &kp X     &kp C     &kp V             &kp B            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N             &kp M  &kp COMMA  &kp DOT  &kp FSLH     &mt LSHIFT BACKSLASH
 &kp BSPC         &kp DEL  &kp LGUI  &kp LALT  &lt 1 INT_HENKAN  &mt LCTRL SPACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &lt 1 INT_HENKAN  &none  &none      &none    &kp ESC      &kp DEL
             >;
         };
@@ -54,10 +53,10 @@ keymap {
 
         ShortCut {
             bindings = <
-&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)  &kp LA(N4)  &kp LA(N5)                                   &trans         &trans               &trans               &trans           &trans           &trans
-&trans  &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)                                   &trans         &trans               &trans               &trans           &trans           &trans
-&trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans                   &trans         &trans               &trans               &trans           &trans           &trans
-&trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans                   &trans         &trans               &trans               &trans           &trans           &trans
+&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)  &kp LA(N4)  &kp LA(N5)                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
