@@ -2,22 +2,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-/ {
-    behaviors {
-        MHEN: MHEN {
-            compatible = "zmk,behavior-tap-dance";
-            label = "MHEN";
-            #binding-cells = <0>;
-            bindings = <&kp INT_MUHENKAN>, <&kp LC(F21)>;
-        };
-
-        HENK: HENK {
-            compatible = "zmk,behavior-tap-dance";
-            label = "HENK";
-            #binding-cells = <0>;
-            bindings = <&kp INT_HENKAN>, <&kp LC(F22)>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -69,9 +53,9 @@
 
         ShortCut {
             bindings = <
-&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)  &kp LA(N4)  &kp LA(N5)                                   &kp F7         &kp F8               &kp F9               &kp F10          &kp F11          &kp F12
-&trans  &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)                                   &kp F1         &kp F2               &kp F3               &kp F4           &kp F5           &kp F6
-&trans  &trans      &trans      &trans      &trans      &trans      &trans  &kp LA(LG(PRINTSCREEN))  &kp LS(LG(S))  &kp LG(PRINTSCREEN)  &kp LA(PRINTSCREEN)  &kp PRINTSCREEN  &kp PAUSE_BREAK  &kp INS
+&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)  &kp LA(N4)  &kp LA(N5)                                   &trans         &trans               &trans               &trans           &trans           &trans
+&trans  &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)                                   &trans         &trans               &trans               &trans           &trans           &trans
+&trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans                   &trans         &trans               &trans               &trans           &trans           &trans
 &trans  &trans      &trans      &trans      &trans      &trans      &trans  &trans                   &trans         &trans               &trans               &trans           &trans           &trans
             >;
         };
