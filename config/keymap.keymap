@@ -3,7 +3,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 
-/ keymap {
+/ {
+keymap {
         compatible = "zmk,keymap";
 
         Win {
