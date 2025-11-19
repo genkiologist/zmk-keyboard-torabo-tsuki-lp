@@ -4,15 +4,18 @@
 
 &zip_temp_layer {
     excluded-positions = <
-        19 // U
-        20 // I
-        21 // O
-        33 // J
-        34 // K
-        35 // L
-        48 // ,(Comm)
+         7 // U
+         8 // I
+         9 // O
+        19 // J
+        20 // K
+        21 // L
+        33 // M
+        34 // ,
+        35 // .
         24 // LShift
         38 // LCtrl
+        52 // BS
     >;
 };
 
@@ -21,7 +24,7 @@
 };
 
 &trackball_listener {
-    // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     input-processors = <&zip_temp_layer 6 100000>;
     scroller {
         layers = <7>;
