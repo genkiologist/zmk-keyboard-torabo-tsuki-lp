@@ -22,7 +22,6 @@
 };
 
 &trackball_listener {
-    report-type = "mouse";
 
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
