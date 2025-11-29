@@ -25,7 +25,6 @@
 };
 
 &trackball_listener {
-    // 複数のinput-processorsをスペース区切りで1つの定義に統合
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         &zip_temp_layer 6 100000
@@ -33,9 +32,10 @@
 
     scroller {
         layers = <7>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_to_scroll_mapper 2>;
     };
 };
+
 
 &size_s_transform {
     col-offset = <7>;
