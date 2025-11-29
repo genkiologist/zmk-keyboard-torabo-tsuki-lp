@@ -84,10 +84,5 @@
             if-layers = <1 2>;
             then-layer = <3>;
         };
-
-        FunctionMac {
-            if-layers = <1 4>;
-            then-layer = <3>;
-        };
     };
 };
