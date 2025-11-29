@@ -34,7 +34,7 @@
         layers = <7>;
         input-processors = <
             &zip_xy_to_scroll_mapper
-            &zipscroll_scaler 1 2 //スクロール速度を1/2にする。3/2にする場合は 3 2とする。
+            &zip_scroll_scaler 1 2 //スクロール速度を1/2にする。3/2にする場合は 3 2とする。
         >;
     };
 };
