@@ -36,7 +36,7 @@
             bindings = <
 &trans  &kp LS(EXCL)   &kp LS(DQT)   &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)                  &kp LS(AMPS)  &kp LS(SQT)  &kp LS(LPAR)  &kp LS(RPAR)  &kp CARET  &kp INT_YEN
 &trans  &kp N1         &kp N2        &kp N3         &kp N4        &kp N5                         &kp N6        &kp N7       &kp N8        &kp N9        &kp N0     &kp RET
-&trans  &kp LS(EQUAL)  &kp LS(PLUS)  &kp MINUS      &kp LS(STAR)  &kp FSLH       &trans  &trans  &kp SEMI      &kp COLON    &kp COMMA     &kp DOT       &kp AT     &kp LS(GRAVE)
+&trans  &kp EQUAL      &kp LS(PLUS)  &kp MINUS      &kp LS(STAR)  &kp FSLH       &trans  &trans  &kp SEMI      &kp COLON    &kp COMMA     &kp DOT       &kp AT     &kp LS(GRAVE)
 &trans  &trans         &trans        &trans         &trans        &trans         &trans  &trans  &trans        &trans       &trans        &trans        &trans     &trans
             >;
         };
