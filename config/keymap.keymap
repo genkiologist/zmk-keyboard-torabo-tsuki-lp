@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-&mkp_input_listener { input-processors = <&zip_temp_layer 6 250>; };
+&mkp_input_listener { input-processors = <&zip_temp_layer 4 250>; };
 
 / {
     combos {
@@ -23,16 +23,16 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Win {
+        0Win {
             bindings = <
 &kp TAB    &kp Q    &kp W     &kp E     &kp R               &kp T                                                          &kp Y             &kp U  &kp I      &kp O    &kp P          &kp MINUS
 &kp ENTER  &kp A    &kp S     &kp D     &kp F               &kp G                                                          &kp H             &kp J  &kp K      &kp L    &lt 5 SEMI     &kp ENTER
 &kp LSHFT  &kp Z    &kp X     &kp C     &kp V               &kp B            &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp N             &kp M  &kp COMMA  &kp DOT  &kp FSLH       &mt LSHIFT BACKSLASH
-&kp BSPC   &kp DEL  &kp LGUI  &kp LALT  &lt 2 INT_MUHENKAN  &mt LCTRL SPACE  &lt 1 INTERNATIONAL_4  &lt 2 INTERNATIONAL_5  &lt 1 INT_HENKAN  &none  &none      &none    &kp BACKSPACE  &kp ESCAPE
+&kp BSPC   &kp DEL  &kp LGUI  &kp LALT  &lt 2 INT_MUHENKAN  &mt LCTRL SPACE  &lt 1 INT_HENKAN  &lt 2 INT_MUHENKAN  &lt 1 INT_HENKAN  &none  &none      &none    &kp BACKSPACE  &kp ESCAPE
             >;
         };
 
-        NumSym {
+        1NumSym {
             bindings = <
 &trans  &kp LS(EXCL)   &kp LS(DQT)   &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)                  &kp LS(AMPS)  &kp LS(SQT)  &kp LS(LPAR)  &kp LS(RPAR)  &kp CARET  &kp INT_YEN
 &trans  &kp N1         &kp N2        &kp N3         &kp N4        &kp N5                         &kp N6        &kp N7       &kp N8        &kp N9        &kp N0     &kp RET
@@ -41,7 +41,7 @@
             >;
         };
 
-        Func {
+        2Func {
             bindings = <
 &trans  &kp LC(Q)  &kp LA(LEFT)  &kp LG(UP)    &kp LA(RIGHT)  &kp LC(T)                  &kp PG_UP      &kp LA(LEFT)         &kp UP               &kp LA(RIGHT)    &kp PAGE_DOWN    &trans
 &trans  &kp LC(A)  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LC(G)                  &kp HOME       &kp LEFT             &kp DOWN             &kp RIGHT        &kp END          &trans
@@ -50,7 +50,7 @@
             >;
         };
 
-        ShortCut {
+        3ShortCut {
             bindings = <
 &trans  &kp LA(N1)    &kp LA(N2)    &kp LA(N3)    &kp LA(N4)    &kp LA(N5)                      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
 &trans  &kp LA(N6)    &kp LA(N7)    &kp LA(N8)    &kp LA(N9)    &kp LA(N0)                      &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
@@ -59,7 +59,7 @@
             >;
         };
 
-        Mouse {
+        4Mouse {
             bindings = <
 &trans  &none   &none   &none   &none   &none                   &none   &mkp MB4        &msc SCRL_UP    &mkp MB5         &none   &trans
 &trans  &none   &none   &none   &none   &none                   &none   &mkp MB1        &mkp MB3        &mkp MB2         &mo 5   &trans
@@ -68,7 +68,7 @@
             >;
         };
 
-        Scroll {
+        5Scroll {
             bindings = <
 &none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
