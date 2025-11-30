@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-&mkp_input_listener { input-processors = <&zip_temp_layer 6 250>; };
+&mkp_input_listener { input-processors = <&zip_temp_layer 4 250>; };
 
 / {
     combos {
@@ -28,15 +28,15 @@
 &kp TAB    &kp Q    &kp W     &kp E     &kp R               &kp T                                                          &kp Y             &kp U  &kp I      &kp O    &kp P          &kp MINUS
 &kp ENTER  &kp A    &kp S     &kp D     &kp F               &kp G                                                          &kp H             &kp J  &kp K      &kp L    &lt 5 SEMI     &kp ENTER
 &kp LSHFT  &kp Z    &kp X     &kp C     &kp V               &kp B            &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp N             &kp M  &kp COMMA  &kp DOT  &kp FSLH       &mt LSHIFT BACKSLASH
-&kp BSPC   &kp DEL  &kp LGUI  &kp LALT  &lt 2 INT_MUHENKAN  &mt LCTRL SPACE  &lt 1 INTERNATIONAL_4  &lt 2 INTERNATIONAL_5  &lt 1 INT_HENKAN  &none  &none      &none    &kp BACKSPACE  &kp ESCAPE
+&kp BSPC   &kp DEL  &kp LGUI  &kp LALT  &lt 2 INT_MUHENKAN  &mt LCTRL SPACE  &lt 1 INT_HENKAN  &lt 2 INT_MUHENKAN  &lt 1 INT_HENKAN  &none  &none      &none    &kp BACKSPACE  &kp ESCAPE
             >;
         };
 
         NumSym {
             bindings = <
-&trans  &kp LS(EXCL)   &kp LS(DQT)   &kp LS(POUND)  &kp LS(DLLR)  &kp LS(PRCNT)                  &kp LS(AMPS)  &kp LS(SQT)  &kp LS(LPAR)  &kp LS(RPAR)  &kp CARET  &kp INT_YEN
+&trans  &kp EXCL   &kp DQT   &kp POUND  &kp DLLR  &kp PRCNT                  &kp AMPS  &kp SQT  &kp LPAR  &kp RPAR  &kp CARET  &kp INT_YEN
 &trans  &kp N1         &kp N2        &kp N3         &kp N4        &kp N5                         &kp N6        &kp N7       &kp N8        &kp N9        &kp N0     &kp RET
-&trans  &kp LS(EQUAL)  &kp LS(PLUS)  &kp MINUS      &kp LS(STAR)  &kp FSLH       &trans  &trans  &kp SEMI      &kp COLON    &kp COMMA     &kp DOT       &kp AT     &kp LS(GRAVE)
+&trans  &kp EQUAL  &kp PLUS  &kp MINUS      &kp STAR  &kp FSLH       &trans  &trans  &kp SEMI      &kp COLON    &kp COMMA     &kp DOT       &kp AT     &kp GRAVE
 &trans  &trans         &trans        &trans         &trans        &trans         &trans  &trans  &trans        &trans       &trans        &trans        &trans     &trans
             >;
         };
