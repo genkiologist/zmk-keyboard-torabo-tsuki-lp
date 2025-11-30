@@ -43,10 +43,10 @@
 
         Func {
             bindings = <
-&trans  &kp LC(Q)  &kp LA(LEFT)  &kp LG(UP)    &kp LA(RIGHT)  &kp LC(T)                  &kp PG_UP      &kp LA(LEFT)         &kp UP               &kp LA(RIGHT)    &kp PAGE_DOWN    &trans
-&trans  &kp LC(A)  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LC(G)                  &kp HOME       &kp LEFT             &kp DOWN             &kp RIGHT        &kp END          &trans
-&trans  &kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)      &kp LC(Y)  &trans  &trans  &kp LS(LG(S))  &kp LG(PRINTSCREEN)  &kp LA(PRINTSCREEN)  &kp PRINTSCREEN  &kp PAUSE_BREAK  &kp INS
-&trans  &trans     &trans        &trans        &trans         &trans     &trans  &trans  &trans         &trans               &trans               &trans           &trans           &trans
+&trans  &kp LC(LG(Q))  &kp LA(LEFT)   &kp LG(UP)     &kp LA(RIGHT)  &kp LC(LG(T))                                   &kp PG_UP      &kp LA(LEFT)         &kp UP               &kp LA(RIGHT)    &kp PAGE_DOWN    &trans
+&trans  &kp LC(LG(A))  &kp LG(LEFT)   &kp LG(DOWN)   &kp LG(RIGHT)  &kp LC(LG(G))                                   &kp HOME       &kp LEFT             &kp DOWN             &kp RIGHT        &kp END          &trans
+&trans  &kp LC(LG(Z))  &kp LC(LG(X))  &kp LC(LG(C))  &kp LC(LG(V))  &kp LC(LG(B))  &trans  &kp LG(LA(PRINTSCREEN))  &kp LS(LG(S))  &kp LG(PRINTSCREEN)  &kp LA(PRINTSCREEN)  &kp PRINTSCREEN  &kp PAUSE_BREAK  &kp INS
+&trans  &trans         &trans         &trans         &trans         &trans         &trans  &trans                   &trans         &trans               &trans               &trans           &trans           &trans
             >;
         };
 
@@ -61,10 +61,10 @@
 
         Mouse {
             bindings = <
-&trans  &none   &none   &none   &none   &none                   &none   &mkp MB4        &msc SCRL_UP    &mkp MB5         &none   &trans
-&trans  &none   &none   &none   &none   &none                   &none   &mkp MB1        &mkp MB3        &mkp MB2         &mo 5   &trans
-&trans  &none   &none   &none   &none   &none   &none   &none   &none   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &none   &mkp MB4        &msc SCRL_UP    &mkp MB5         &none                   &none   &mkp MB4        &msc SCRL_UP    &mkp MB5         &none   &trans
+&trans  &mo 5   &mkp LCLK       &mkp MCLK       &mkp RCLK        &none                   &none   &mkp MB1        &mkp MB3        &mkp MB2         &mo 5   &trans
+&trans  &none   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none   &none   &none   &none   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none   &trans
+&trans  &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans          &trans          &trans           &trans  &trans
             >;
         };
 
