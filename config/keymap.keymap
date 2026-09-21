@@ -59,6 +59,12 @@
     quick-tap-ms = <200>;
 };
 
+// stickyレイヤー(&sl)の保持時間。既定の1秒だとBTプロファイルを選ぶ前に外れやすいので伸ばす。
+// 外れた場合はBtSelectレイヤーが消えるだけで、誤爆して別プロファイルへ飛ぶことはない
+&sl {
+    release-after-ms = <2000>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -81,6 +87,30 @@
         end {
             bindings = <&kp END>;
             key-positions = <39 60 35>;
+        };
+
+        // 右手だけでBTプロファイルを選ぶ入口。U I O (index 19 20 21)の同時押しでBtSelect(layer 6)を
+        // stickyで1回だけ有効にし、続けて右手の1キーを「単押し」して接続/切断/消去を選ぶ。
+        // 既存の2+3(両親指)経由のShortCutはそのまま残る。
+        // 右手がcentralなので、左手が電池切れ・電源オフでもこの経路だけは生きている。
+        //
+        // 🔴 layersは「その時点で最も高いindexのアクティブなレイヤー」1つとだけ照合される
+        // (combo.c: zmk_keymap_highest_layer_active)。そのため素の0だけでは足りない:
+        //   0 = 通常
+        //   1 = Mouse。トラックボールを触るとzip_temp_layerが立てるので、ボール直後に効かなくなる
+        //   7 = OsWin。Windowsモードの間ずっとonなので、これが無いとWindows側で一切発火しない
+        // 逆にNum(2)/Func(3)/ShortCut(5)中は発火しない。Windowsモードのみhighestが7のままなので
+        // Num/Func中でも発火しうるが、その位置の3キー同時押しは通常の打鍵では起きない。
+        // 🔴 下段(M , .)ではなく上段(U I O)に置くのは、下段の . BS がプロファイル消去・全消去で、
+        // コンボを離した指がその上に残ると誤爆したとき接続情報が消えるため(2026-09-21 田上さんの判断)。
+        // 上段に残る指の下はBT_DISC(切断)で、こちらは繋ぎ直せば戻る。
+        // ⚠️ require-prior-idle-msは誤爆防止。外すと打鍵の流れの中で画面が別の機械へ飛ぶ
+        bt_select {
+            bindings = <&sl 6>;
+            key-positions = <19 20 21>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
+            layers = <0 1 7>;
         };
     };
 
@@ -164,9 +194,9 @@
         ShortCut {
             bindings = <
   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-  &none  &kp LA(LC(LG(Q)))  &kp LA(LG(LC(W)))  &kp LA(LG(LC(E)))  &kp LA(LG(LC(R)))  &kp LA(LG(LC(T)))  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &none
-  &none  &kp LA(LG(LC(A)))  &kp LA(LG(LC(S)))  &kp LA(LG(LC(D)))  &kp LA(LG(LC(F)))  &kp LA(LG(LC(G)))  &none  &none  &bt_win  &bt_mac  &bt_iph  &bt_iphw  &bt_ipad  &none
-  &none  &kp LA(LG(LC(Z)))  &kp LA(LG(LC(X)))  &kp LA(LG(LC(C)))  &kp LA(LG(LC(V)))  &kp LA(LG(LC(B)))  &none  &none  &bootloader  &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &bt BT_CLR_ALL  &none
+  &none  &kp LA(LC(LG(Q)))  &kp LA(LG(LC(W)))  &kp LA(LG(LC(E)))  &kp LA(LG(LC(R)))  &kp LA(LG(LC(T)))  &kp LA(LG(LC(Y)))  &kp LA(LG(LC(U)))  &kp PG_UP  &kp LA(LG(LC(O)))  &kp LA(LG(LC(P)))  &none
+  &none  &kp LA(LG(LC(A)))  &kp LA(LG(LC(S)))  &kp LA(LG(LC(D)))  &kp LA(LG(LC(F)))  &kp LA(LG(LC(G)))  &none  &none  &kp LA(LG(LC(H)))  &kp HOME  &kp PG_DN  &kp END  &kp ENTER  &none
+  &none  &kp LA(LG(LC(Z)))  &kp LA(LG(LC(X)))  &kp LA(LG(LC(C)))  &kp LA(LG(LC(V)))  &kp LA(LG(LC(B)))  &none  &none  &kp LA(LG(LC(N)))  &kp LA(LG(LC(M)))  &kp LA(LG(LC(COMMA)))  &kp LA(LG(LC(DOT)))  &kp BSPC  &none
   &none  &none  &none  &none  &trans  &trans  &none  &none  &trans  &none  &none  &none  &none  &none
             >;
 
@@ -176,12 +206,24 @@
             >;
         };
 
-        layer_5 {
+        // 🔴 bootloaderキーは2026-09-21に田上さんの判断で削除した。以後キーマップからは入れない。
+        // 代わりにUSBを繋いでCDC ACMポートを1200bpsで開くとブートローダに入る
+        // (CONFIG_ZMK_CDC_ACM_BOOTLOADER_TRIGGER=y が左右の.confにある。Arduinoと同じ方式):
+        //   ls /dev/cu.usbmodem*  →  stty -f /dev/cu.usbmodem<実際の名前> 1200
+        //
+        // BT関連を集約したレイヤー。combo bt_select から &sl 6 (sticky) で入り、次の1キーだけ効く。
+        //   Y U I O P     = プロファイル0〜4の切断 (&bt BT_DISC)
+        //   H J K L Enter = プロファイル0〜4への接続 (Win/Mac/iPhone/iPhone(W)/iPad)
+        //   M ,           = 前/次のプロファイル
+        //   . BS          = このプロファイルを消去 / 全プロファイルを消去
+        // 左手は&trans、右手の残りは&noneなので、選び損ねても何も起きない
+        BtSelect {
+            display-name = "BtSelect";
             bindings = <
   &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-  &none  &trans  &trans  &trans  &trans  &trans  &trans  &none  &none  &none  &none  &none
+  &none  &trans  &trans  &trans  &trans  &trans  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &none
   &none  &trans  &trans  &trans  &trans  &trans  &none  &none  &bt_win  &bt_mac  &bt_iph  &bt_iphw  &bt_ipad  &none
-  &none  &trans  &trans  &trans  &trans  &trans  &none  &none  &none  &none  &none  &none  &none  &none
+  &none  &trans  &trans  &trans  &trans  &trans  &none  &none  &none  &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &bt BT_CLR_ALL  &none
   &none  &none  &none  &none  &trans  &trans  &none  &none  &trans  &none  &none  &none  &none  &none
             >;
         };
