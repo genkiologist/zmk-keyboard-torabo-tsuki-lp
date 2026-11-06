@@ -32,7 +32,7 @@
     scroller {
         layers = <3>;
         input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)   // Helix: カーソル用の向き（90度回転）に対して縦だけ反転＝torabo と同じ関係
             &zip_xy_to_scroll_mapper
             &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
             // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
