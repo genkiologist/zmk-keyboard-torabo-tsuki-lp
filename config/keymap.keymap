@@ -26,14 +26,14 @@
 
 &pointing_listener {
     input-processors = <
-        &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)   // Helix: センサーが torabo と90度違う（helix-zmk で奥→上を確認済みの向き）
+        // Helix beta（11/10）: 上に転がすと左へ行ったので、旧設定（SWAP|Y_INVERT）から90度戻して変換なしにした
         &zip_temp_layer 1 100000
     >;
 
     scroller {
         layers = <3>;
         input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)   // Helix: カーソル用の向き（90度回転）に対して縦だけ反転＝torabo と同じ関係
+            &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)   // カーソルの向きに対して縦だけ反転＝torabo と同じ関係
             &zip_xy_to_scroll_mapper
             &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
             // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
