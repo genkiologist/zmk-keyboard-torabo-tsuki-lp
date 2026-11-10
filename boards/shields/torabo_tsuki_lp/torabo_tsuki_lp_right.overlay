@@ -14,8 +14,9 @@
     col-offset = <7>;
 };
 
+/* rev3: 右のSIQは未実装なので無効 */
 &encoder_right {
-    status = "okay";
+    status = "disabled";
 };
 
 // &scroll_inertia {
