@@ -9,25 +9,17 @@
         };
     };
 
-    /* Helix: 左手のボール＝カーソル移動。向きは右手と同じ設定（11/12 田上さん指定）。
-     * ケースが右の鏡写しなので、ずれていたらここの transform だけ直す。 */
+    /* Helix: 左手のボール＝スクロール（11/12 田上さん指定）。
+     * カーソルなら SWAP|X_INVERT が正しい向き（11/12 実機で確認）。スクロールはそこから縦だけ反転（右手と同じ関係）。 */
     pointing_device_split_listener: pointing_device_split_listener {
         compatible = "zmk,input-listener";
         device = <&pointing_device_split>;
         status = "okay";
         input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)   // 11/12: 右手と同じ設定だと上下左右とも逆だったので180度回した
-            &zip_temp_layer 1 100000
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_snap
+            &zip_scroll_scaler 1 8
         >;
-
-        scroller {
-            layers = <3>;
-            input-processors = <
-                &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)   // 右手の scroller を180度回した
-                &zip_xy_to_scroll_mapper
-                &zip_scroll_snap
-                &zip_scroll_scaler 1 8
-            >;
-        };
     };
 };
