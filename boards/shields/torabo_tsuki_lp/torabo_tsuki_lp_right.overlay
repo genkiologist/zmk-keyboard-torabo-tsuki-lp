@@ -14,9 +14,9 @@
     col-offset = <7>;
 };
 
-/* rev3: 右のSIQは未実装なので無効 */
+/* rev3: Nの左下のエンコーダ（基板のエンコーダ端子 B6/B5） */
 &encoder_right {
-    status = "disabled";
+    status = "okay";
 };
 
 // &scroll_inertia {

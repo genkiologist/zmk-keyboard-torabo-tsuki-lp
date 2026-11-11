@@ -56,8 +56,8 @@
 
     encoder_right: encoder_right {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;    /* Helix beta: A=OLEDのSDA(PD1, P0.18) */
-        b-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;    /* Helix beta: B=OLEDのSCL(PD0, P0.16) */
+        a-gpios = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   /* Helix rev3: 右手もエンコーダ端子 A=B6 */
+        b-gpios = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;    /* Helix rev3: B=B5 */
         steps = <60>;   /* Helix: SIQ-02FVS3 15パルス×4 */
         status = "disabled";
     };
