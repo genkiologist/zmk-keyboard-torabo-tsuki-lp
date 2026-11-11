@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include "helix_trackball.dtsi"   // トラボの設定（Keymap Editor の対象外）
 
 // Helix rev3 5行版（60キー）
 //  0  1  2  3  4  5      6  7  8  9 10 11   ← 数字の段
@@ -9,46 +10,6 @@
 // 24 25 26 27 28 29     30 31 32 33 34 35
 // 36 37 38 39 40 41     42 43 44 45 46 47
 // 48 49 50 51 52 53     54 55 56 57 58 59
-
-&mkp_input_listener { input-processors = <&zip_temp_layer 1 100000>; };
-
-&zip_temp_layer {
-    excluded-positions = <
-        31 // J:Lbutton
-        32 // K:Mbutton - Scroll Layer
-        33 // L:Rbutton
-        34 // Enter-shift
-        25 // A-Shift
-        53 // Space-Lctrl
-    >;
-
-    require-prior-idle-ms = <200>;
-};
-
-&pointing_listener {
-    input-processors = <
-        // Helix rev3（11/11）: 変換なしだと上→右・右→下だったので、SWAP|Y_INVERT（11/6 の helix-pins と同じ）
-        &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
-        &zip_temp_layer 1 100000
-    >;
-
-    scroller {
-        layers = <3>;
-        input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)   // 生の値から: カーソルの向きに対して縦だけ反転＝torabo と同じ関係
-            &zip_xy_to_scroll_mapper
-            &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
-            // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
-            &zip_scroll_scaler 1 8 //スクロール速度を1/8にする。n/mにする場合は[n m]と書く。
-        >;
-    };
-};
-
-&zip_scroll_snap {
-    x-threshold = <5 8>;
-    y-threshold = <8 5>;
-    xy-threshold = <5 8>;
-};
 
 // mtの初期値はhold-preferred(他のキーを押した瞬間にholdが確定する)で、
 // Spaceの直後に文字を打つと意図せずCtrl等が発火しやすいので、hmと同じtap-preferredに統一する

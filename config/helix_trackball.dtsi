@@ -1,0 +1,46 @@
+/*
+ * Helix rev3: トラボ（右＝本体、左＝split input）の設定。
+ * Keymap Editor が触らないよう keymap.keymap から分離した（11/12）。keymap.keymap の先頭で #include している。
+ * 左トラボの listener 本体は snippets/input-split-listener/input-split-listener.overlay（右手 central のビルドだけで有効）。
+ * zip_temp_layer の excluded-positions はキー番号（keymap.keymap 冒頭の表）に依存する。
+ */
+
+&mkp_input_listener { input-processors = <&zip_temp_layer 1 100000>; };
+
+&zip_temp_layer {
+    excluded-positions = <
+        31 // J:Lbutton
+        32 // K:Mbutton - Scroll Layer
+        33 // L:Rbutton
+        34 // Enter-shift
+        25 // A-Shift
+        53 // Space-Lctrl
+    >;
+
+    require-prior-idle-ms = <200>;
+};
+
+&pointing_listener {
+    input-processors = <
+        // Helix rev3（11/11）: 変換なしだと上→右・右→下だったので、SWAP|Y_INVERT（11/6 の helix-pins と同じ）
+        &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+        &zip_temp_layer 1 100000
+    >;
+
+    scroller {
+        layers = <3>;
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)   // 生の値から: カーソルの向きに対して縦だけ反転＝torabo と同じ関係
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
+            // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
+            &zip_scroll_scaler 1 8 //スクロール速度を1/8にする。n/mにする場合は[n m]と書く。
+        >;
+    };
+};
+
+&zip_scroll_snap {
+    x-threshold = <5 8>;
+    y-threshold = <8 5>;
+    xy-threshold = <5 8>;
+};
