@@ -10,7 +10,7 @@
     };
 
     /* Helix: 左手のボール＝スクロール（11/12 田上さん指定）。
-     * カーソルなら SWAP|X_INVERT が正しい向き（11/12 実機で確認）。スクロールはそこから縦だけ反転（右手と同じ関係）。 */
+     * カーソルなら SWAP|X_INVERT が正しい向き（11/12 実機で確認）。スクロールは 11/12 に縦横とも反転して SWAP のみ。縦横への吸い付き（scroll snap）は 11/13 田上さん指示で外した。 */
     pointing_device_split_listener: pointing_device_split_listener {
         compatible = "zmk,input-listener";
         device = <&pointing_device_split>;
@@ -18,7 +18,6 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)
             &zip_xy_to_scroll_mapper
-            &zip_scroll_snap
             &zip_scroll_scaler 1 8
         >;
     };
