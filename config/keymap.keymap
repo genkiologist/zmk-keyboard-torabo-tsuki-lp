@@ -4,12 +4,12 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "helix_trackball.dtsi"   // トラボの設定（Keymap Editor の対象外）
 
-// Helix rev3 5行版（60キー）
-//  0  1  2  3  4  5      6  7  8  9 10 11   ← 数字の段
+// Helix rev3 5行版（60キー）。数字の段を無くし全体を1段上へ（11/13）。最下段(48〜59)は &none
+//  0  1  2  3  4  5      6  7  8  9 10 11
 // 12 13 14 15 16 17     18 19 20 21 22 23
 // 24 25 26 27 28 29     30 31 32 33 34 35
-// 36 37 38 39 40 41     42 43 44 45 46 47
-// 48 49 50 51 52 53     54 55 56 57 58 59
+// 36 37 38 39 40 41     42 43 44 45 46 47   ← 親指の段
+// 48 49 50 51 52 53     54 55 56 57 58 59   ← 未使用（&none）
 
 // mtの初期値はhold-preferred(他のキーを押した瞬間にholdが確定する)で、
 // Spaceの直後に文字を打つと意図せずCtrl等が発火しやすいので、hmと同じtap-preferredに統一する
@@ -25,22 +25,22 @@
 
         pgup {
             bindings = <&kp PG_UP>;
-            key-positions = <20 37 54>;
+            key-positions = <8 25 42>;
         };
 
         pgdn {
             bindings = <&kp PAGE_DOWN>;
-            key-positions = <37 54 32>;
+            key-positions = <25 42 20>;
         };
 
         home {
             bindings = <&kp HOME>;
-            key-positions = <37 54 31>;
+            key-positions = <25 42 19>;
         };
 
         end {
             bindings = <&kp END>;
-            key-positions = <37 54 33>;
+            key-positions = <25 42 21>;
         };
     };
 
@@ -49,11 +49,11 @@
 
         Default {
             bindings = <
-  &kp GRAVE   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp MINUS
   &kp ESC     &hm LCTRL Q                   &kp W       &kp E       &kp R        &kp T              &kp Y        &kp U  &kp I               &kp O         &hm LCTRL P                           &kp MINUS
   &kp TAB     &mt_exit_AML_on_tap LSHIFT A  &kp S       &kp D       &kp F        &kp G              &kp H        &kp J  &kp K               &kp L         &mt_exit_AML_on_tap LEFT_SHIFT ENTER  &kp DEL
   &kp LSHIFT  &kp Z                         &hm LWIN X  &hm LALT C  &kp V        &kp B              &kp N        &kp M  &hm LEFT_ALT COMMA  &hm LWIN DOT  &kp BACKSPACE                         &kp SLASH
   &kp LCTRL   &kp LGUI                      &kp LALT    &mo 3       &moMHEN 3 0  &mt LCTRL SPACE    &moHENK 0 0  &mo 6  &kp LEFT            &kp UP        &kp DOWN                              &kp RIGHT
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&scroll_lr &scroll_ud>;
@@ -61,11 +61,11 @@
 
         Mouse {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &trans  &none   &none   &none   &none   &none     &none   &none     &none      &none        &none   &trans
   &trans  &trans  &none   &none   &none   &none     &none   &mkp MB1  &lm 3 MB3  &RightClick  &trans  &trans
   &trans  &none   &none   &none   &none   &none     &none   &none     &none      &none        &none   &trans
   &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans       &trans  &trans
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&scroll_lr &scroll_ud>;
@@ -73,11 +73,11 @@
 
         Num {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &trans  &hm LCTRL NUMBER_1   &kp N2                     &kp N3              &kp N4         &kp N5           &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp UP            &kp BACKSLASH  &hm LCTRL INTERNATIONAL_3  &trans
   &trans  &hm LSHIFT NUMBER_6  &kp N7                     &kp N8              &kp N9         &kp N0           &kp LA(LEFT)      &kp LEFT           &kp DOWN          &kp RIGHT      &hm LEFT_SHIFT LA(RIGHT)   &trans
   &trans  &kp SLASH            &hm LEFT_WIN SINGLE_QUOTE  &hm LEFT_ALT MINUS  &kp SEMI       &kp EQUAL        &kp LS(INT1)      &alttab            &Malt LEFT_ALT 0  &Mwin LWIN 0   &kp DELETE                 &trans
   &trans  &trans               &trans                     &trans              &lt 3 LC(F23)  &mt LCTRL TAB    &trans            &trans             &trans            &trans         &trans                     &trans
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&scroll_lr &scroll_ud>;
@@ -85,11 +85,11 @@
 
         Func {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &trans  &hm LCTRL F6       &kp F7        &kp F8                &kp F9   &kp F10                  &kp N7    &kp N8  &kp N9             &kp MINUS               &hm LCTRL EQUAL          &trans
   &trans  &hm LSHIFT ESCAPE  &kp F2        &kp F3                &kp F4   &kp F5                   &kp N4    &kp N5  &kp N6             &kp SEMI                &hm LSHIFT SINGLE_QUOTE  &trans
   &trans  &kp F11            &mt LWIN F12  &mt LALT PRINTSCREEN  &kp INS  &kp F1                   &kp N1    &kp N2  &hm LALT NUMBER_3  &hm LWIN K_APPLICATION  &kp FSLH                 &trans
   &trans  &trans             &trans        &trans                &trans   &hm LCTRL PAUSE_BREAK    &lt 2 N0  &trans  &trans             &trans                  &trans                   &trans
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&scroll_lr &scroll_ud>;
@@ -97,11 +97,11 @@
 
         ShortCut {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &trans  &kp LA(LC(LG(Q)))  &kp LA(LG(LC(W)))  &kp LA(LG(LC(E)))  &kp LA(LG(LC(R)))  &kp LA(LG(LC(T)))    &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4   &trans
   &trans  &kp LA(LG(LC(A)))  &kp LA(LG(LC(S)))  &kp LA(LG(LC(D)))  &kp LA(LG(LC(F)))  &kp LA(LG(LC(G)))    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4    &trans
   &trans  &kp LA(LG(LC(Z)))  &kp LA(LG(LC(X)))  &kp LA(LG(LC(C)))  &kp LA(LG(LC(V)))  &kp LA(LG(LC(B)))    &bootloader    &bt BT_PRV     &bt BT_NXT     &bt BT_CLR     &bt BT_CLR_ALL  &trans
   &trans  &trans             &trans             &trans             &trans             &trans               &trans         &trans         &trans         &trans         &trans          &trans
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&scroll_lr &scroll_ud>;
@@ -109,22 +109,22 @@
 
         layer_5 {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &trans  &trans  &trans  &trans  &trans  &trans    &trans        &none         &none         &none         &none         &trans
   &trans  &trans  &trans  &trans  &trans  &trans    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
   &trans  &trans  &trans  &trans  &trans  &trans    &none         &none         &none         &none         &none         &trans
   &trans  &trans  &trans  &trans  &trans  &trans    &trans        &trans        &trans        &trans        &trans        &trans
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
         };
 
         Mirror {
             // Mの下を押している間: 右手は鏡の位置の左手のキー＋Ctrl（M→Ctrl+V）、左手はそのままCtrl＋キー
             bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
   &kp LC(ESC)     &kp LC(Q)  &kp LC(W)  &kp LC(E)  &kp LC(R)  &kp LC(T)    &kp LC(T)  &kp LC(R)  &kp LC(E)     &kp LC(W)   &kp LC(Q)     &kp LC(ESC)
   &kp LC(TAB)     &kp LC(A)  &kp LC(S)  &kp LC(D)  &kp LC(F)  &kp LC(G)    &kp LC(G)  &kp LC(F)  &kp LC(D)     &kp LC(S)   &kp LC(A)     &kp LC(TAB)
   &kp LC(LSHIFT)  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(B)    &kp LC(B)  &kp LC(V)  &kp LC(C)     &kp LC(X)   &kp LC(Z)     &kp LC(LSHIFT)
   &trans          &trans     &trans     &trans     &trans     &trans       &trans     &trans     &kp LC(LEFT)  &kp LC(UP)  &kp LC(DOWN)  &kp LC(RIGHT)
+  &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
             >;
         };
     };

@@ -9,12 +9,12 @@
 
 &zip_temp_layer {
     excluded-positions = <
-        31 // J:Lbutton
-        32 // K:Mbutton - Scroll Layer
-        33 // L:Rbutton
-        34 // Enter-shift
-        25 // A-Shift
-        53 // Space-Lctrl
+        19 // J:Lbutton
+        20 // K:Mbutton - Scroll Layer
+        21 // L:Rbutton
+        22 // Enter-shift
+        13 // A-Shift
+        41 // Space-Lctrl
     >;
 
     require-prior-idle-ms = <200>;
