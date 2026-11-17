@@ -1,0 +1,13 @@
+# torabo-tsuki LP (Helix) の zephyr モジュール用 Kconfig
+
+# PAW3222 ドライバ（drivers/paw3222、sekigon-gonnoc/zmk-driver-paw3222 torabo-tsuki-nemu-link の写し）
+menuconfig PAW3222
+    bool "PAW3222 mouse optical sensor"
+    select SPI
+    help
+      Enable PAW3222 mouse optical sensor.
+
+config ZMK_INPUT_PROCESSOR_SHIFT_SCROLL_AXIS
+    bool "Shift で縦／横スクロールを切り替える input processor"
+    default y
+    depends on ZMK_POINTING

@@ -1,0 +1,10 @@
+description: |
+  スクロールの軸を Shift で切り替える。Shift なし＝縦（REL_WHEEL）だけ、Shift あり＝横（REL_HWHEEL）だけを通す。
+  通さない軸のイベントは値を 0 にする（sync を落とさないため、捨てずに残す）。
+
+compatible: "zmk,input-processor-shift-scroll-axis"
+
+properties:
+  "#input-processor-cells":
+    type: int
+    const: 0

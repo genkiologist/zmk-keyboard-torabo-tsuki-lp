@@ -18,6 +18,7 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)
             &zip_xy_to_scroll_mapper
+            &zip_shift_scroll_axis   // 11/17: Shift なし＝縦だけ、Shift あり＝横だけ
             &zip_scroll_scaler 1 8
         >;
     };

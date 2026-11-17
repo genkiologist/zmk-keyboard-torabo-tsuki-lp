@@ -5,6 +5,13 @@
  * zip_temp_layer の excluded-positions はキー番号（keymap.keymap 冒頭の表）に依存する。
  */
 
+/ {
+    zip_shift_scroll_axis: zip_shift_scroll_axis {
+        compatible = "zmk,input-processor-shift-scroll-axis";
+        #input-processor-cells = <0>;
+    };
+};
+
 &mkp_input_listener { input-processors = <&zip_temp_layer 1 100000>; };
 
 &zip_temp_layer {
@@ -32,7 +39,7 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)   // 生の値から: カーソルの向きに対して縦だけ反転＝torabo と同じ関係
             &zip_xy_to_scroll_mapper
-            &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
+            &zip_shift_scroll_axis // 11/17: Shift なし＝縦だけ、Shift あり＝横だけ（snap は外した）
             // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
             &zip_scroll_scaler 1 8 //スクロール速度を1/8にする。n/mにする場合は[n m]と書く。
         >;
