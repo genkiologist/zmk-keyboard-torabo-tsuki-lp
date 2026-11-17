@@ -16,11 +16,6 @@
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio.h>
-/* 写しでの追加: 右手(central)のビルドでは、ここまでに ZMK の dt-bindings/zmk/keys.h の
- * `#define P ...` が入っていて、nrfx の NRFX_CONCAT(..., P, 0) が壊れる（11/17 run 44066725488）。 */
-#ifdef P
-#undef P
-#endif
 #include <zephyr/drivers/spi.h>
 #include <zephyr/input/input.h>
 #include <zephyr/kernel.h>
@@ -46,6 +41,11 @@
 #endif
 
 #if defined(CONFIG_SOC_SERIES_NRF52X)
+/* 写しでの追加: central では上の zmk/endpoints.h → zmk/keys.h 経由で dt-bindings/zmk/keys.h の
+ * `#define P ...` が入り、nrfx の NRFX_CONCAT(..., P, 0) が壊れる（11/17 run 44066725488 で発覚）。 */
+#ifdef P
+#undef P
+#endif
 #include <hal/nrf_gpio.h>
 #include <hal/nrf_spim.h>
 #endif

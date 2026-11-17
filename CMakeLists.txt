@@ -9,7 +9,6 @@ if(CONFIG_PAW3222)
   zephyr_library_named(paw3222_driver)
   zephyr_library_sources(drivers/paw3222/src/paw3222.c)
   zephyr_library_include_directories(drivers/paw3222/include)
-  zephyr_library_compile_options(-H)  # 一時: インクルード経路の調査
 endif()
 
 # Shift で縦／横スクロールを切り替える（central だけで動く）
