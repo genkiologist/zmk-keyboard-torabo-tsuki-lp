@@ -8,3 +8,7 @@ properties:
   "#input-processor-cells":
     type: int
     const: 0
+
+  track-remainders:
+    type: boolean
+    description: input_listener が全 processor について参照する（このプロセッサでは使わない）
