@@ -24,6 +24,12 @@
 #include <zephyr/pm/device_runtime.h>
 #include <zephyr/sys/atomic.h>
 #include <zephyr/sys/util.h>
+/* 写しでの変更: nrfx の hal ヘッダを ZMK のヘッダより先に読む。central では zmk/endpoints.h →
+ * dt-bindings/zmk/keys.h の P・OUT などのマクロが nrfx を壊すため（11/17 run 44066725488 で発覚）。 */
+#if defined(CONFIG_SOC_SERIES_NRF52X)
+#include <hal/nrf_gpio.h>
+#include <hal/nrf_spim.h>
+#endif
 #include <zmk/event_manager.h>
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 #include <zmk/endpoints.h>
@@ -40,15 +46,6 @@
 #include <zmk/dynamic_settings/store.h>
 #endif
 
-#if defined(CONFIG_SOC_SERIES_NRF52X)
-/* 写しでの追加: central では上の zmk/endpoints.h → zmk/keys.h 経由で dt-bindings/zmk/keys.h の
- * `#define P ...` が入り、nrfx の NRFX_CONCAT(..., P, 0) が壊れる（11/17 run 44066725488 で発覚）。 */
-#ifdef P
-#undef P
-#endif
-#include <hal/nrf_gpio.h>
-#include <hal/nrf_spim.h>
-#endif
 
 #include "../include/paw3222.h"
 
