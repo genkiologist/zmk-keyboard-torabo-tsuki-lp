@@ -10,7 +10,11 @@
     >;
 };
 
+/* 11/18 田上さん: 左ボールをやめ、追加IOの 17（P0.17）・21（P0.21）を左エンコーダに。
+ * A/B の割り当ては仮（逆回転なら入れ替える）。ステップ数は右と同じ SIQ 前提の値のまま。 */
 &encoder_left {
+    a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     status = "okay";
 };
 
