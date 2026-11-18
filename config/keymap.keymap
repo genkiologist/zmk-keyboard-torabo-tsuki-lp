@@ -225,21 +225,31 @@
         };
     };
 
+    wstep_input_listener: wstep_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&wstep>;
+    };
+
     behaviors {
+        /* エンコーダ: 向きを変えた最初の1クリックが落ちる問題と、&msc のタイミングで 0〜2 段にぶれる問題を避ける（11/18）
+           sensor-rotate-detent と wheel-step は src/behaviors/ の自作 */
+        wstep: wheel_step {
+            compatible = "zmk,behavior-wheel-step";
+            #binding-cells = <1>;
+        };
+
         scroll_ud: scroll_up_down {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-sensor-rotate-detent";
             #sensor-binding-cells = <0>;
-            /* &msc は速度（単位/秒）で 16ms ごとに進む。SCRL_UP(10) で 30ms だと 0.16×1〜2 で 0 になり捨てられる。
-               100/秒×16ms=1.6 → 1クリック=1段。tap-ms 20 で 16ms の1回だけ効かせる（11/18） */
-            bindings = <&msc MOVE_Y(100)>, <&msc MOVE_Y(-100)>;
-            tap-ms = <20>;
+            bindings = <&wstep MOVE_Y(1)>, <&wstep MOVE_Y(-1)>;
+            tap-ms = <5>;
         };
 
         scroll_lr: scroll_left_right {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-sensor-rotate-detent";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_X(100)>, <&msc MOVE_X(-100)>;
-            tap-ms = <20>;
+            bindings = <&wstep MOVE_X(1)>, <&wstep MOVE_X(-1)>;
+            tap-ms = <5>;
         };
         lm: lt_with_mouse {
             compatible = "zmk,behavior-hold-tap";

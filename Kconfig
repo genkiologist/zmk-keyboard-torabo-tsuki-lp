@@ -11,3 +11,13 @@ config ZMK_INPUT_PROCESSOR_SHIFT_SCROLL_AXIS
     bool "Shift で縦／横スクロールを切り替える input processor"
     default y
     depends on ZMK_POINTING
+
+config ZMK_BEHAVIOR_WHEEL_STEP
+    bool
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_WHEEL_STEP_ENABLED
+
+config ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT
+    bool
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT_ENABLED

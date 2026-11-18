@@ -1,0 +1,5 @@
+description: Send one wheel report (MOVE_X/MOVE_Y encoded amount) per press
+
+compatible: "zmk,behavior-wheel-step"
+
+include: one_param.yaml

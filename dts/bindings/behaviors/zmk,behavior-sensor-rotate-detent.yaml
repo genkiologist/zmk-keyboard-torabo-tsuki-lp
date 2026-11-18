@@ -1,0 +1,20 @@
+
+description: Sensor rotate that resets remainder on reversal and fires at 3/4 detent
+
+compatible: "zmk,behavior-sensor-rotate-detent"
+
+properties:
+  label:
+    type: string
+    required: false
+    deprecated: true
+  "#sensor-binding-cells":
+    type: int
+    required: true
+    const: 0
+  bindings:
+    type: phandle-array
+    required: true
+  tap-ms:
+    type: int
+    default: 5

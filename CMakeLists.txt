@@ -15,3 +15,11 @@ endif()
 if(CONFIG_ZMK_INPUT_PROCESSOR_SHIFT_SCROLL_AXIS AND ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
   target_sources(app PRIVATE src/input_processors/input_processor_shift_scroll_axis.c)
 endif()
+
+# エンコーダ用: 1クリック=決まった段数のホイール（src/behaviors/behavior_wheel_step.c）
+if(CONFIG_ZMK_BEHAVIOR_WHEEL_STEP)  # input-listener が両側で参照するので左右ともコンパイル
+  target_sources(app PRIVATE src/behaviors/behavior_wheel_step.c)
+endif()
+if(CONFIG_ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT AND ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
+  target_sources(app PRIVATE src/behaviors/behavior_sensor_rotate_detent.c)
+endif()
