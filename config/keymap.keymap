@@ -229,15 +229,17 @@
         scroll_ud: scroll_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-            tap-ms = <30>;
+            /* &msc は速度（単位/秒）で 16ms ごとに進む。SCRL_UP(10) で 30ms だと 0.16×1〜2 で 0 になり捨てられる。
+               100/秒×16ms=1.6 → 1クリック=1段。tap-ms 20 で 16ms の1回だけ効かせる（11/18） */
+            bindings = <&msc MOVE_Y(100)>, <&msc MOVE_Y(-100)>;
+            tap-ms = <20>;
         };
 
         scroll_lr: scroll_left_right {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
-            tap-ms = <30>;
+            bindings = <&msc MOVE_X(100)>, <&msc MOVE_X(-100)>;
+            tap-ms = <20>;
         };
         lm: lt_with_mouse {
             compatible = "zmk,behavior-hold-tap";
