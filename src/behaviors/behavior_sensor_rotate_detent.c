@@ -33,6 +33,7 @@ struct srd_config {
 
 struct srd_data {
     int acc[ZMK_KEYMAP_SENSORS_LEN][ZMK_KEYMAP_LAYERS_LEN];
+    int8_t last_dir[ZMK_KEYMAP_SENSORS_LEN][ZMK_KEYMAP_LAYERS_LEN];
     int triggers[ZMK_KEYMAP_SENSORS_LEN][ZMK_KEYMAP_LAYERS_LEN];
 };
 
@@ -56,10 +57,15 @@ static int srd_accept_data(struct zmk_behavior_binding *binding,
         return 0;
     }
 
-    /* 逆向きに回し始めたら繰り越しを捨てる */
-    if ((delta > 0 && *acc < 0) || (delta < 0 && *acc > 0)) {
+    /* 逆向きに回し始めたら繰り越しを捨てる。
+       判定は「前回の回転の向き」で行う（acc の符号で判定すると、発火後に負になった繰り越しまで
+       捨ててしまい、1クリックで2回発火することがある。11/18 実測で奥5クリック→6段） */
+    int8_t dir = delta > 0 ? 1 : -1;
+    int8_t *last = &data->last_dir[idx][event.layer];
+    if (*last != 0 && dir != *last) {
         *acc = 0;
     }
+    *last = dir;
     *acc += delta;
 
     while (*acc >= threshold) {

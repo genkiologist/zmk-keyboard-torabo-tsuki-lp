@@ -241,14 +241,14 @@
         scroll_ud: scroll_up_down {
             compatible = "zmk,behavior-sensor-rotate-detent";
             #sensor-binding-cells = <0>;
-            bindings = <&wstep MOVE_Y(1)>, <&wstep MOVE_Y(-1)>;
+            bindings = <&wstep MOVE_Y(-1)>, <&wstep MOVE_Y(1)>;   /* &msc 版と向きが逆だったので反転（11/18 実測） */
             tap-ms = <5>;
         };
 
         scroll_lr: scroll_left_right {
             compatible = "zmk,behavior-sensor-rotate-detent";
             #sensor-binding-cells = <0>;
-            bindings = <&wstep MOVE_X(1)>, <&wstep MOVE_X(-1)>;
+            bindings = <&wstep MOVE_X(-1)>, <&wstep MOVE_X(1)>;
             tap-ms = <5>;
         };
         lm: lt_with_mouse {
