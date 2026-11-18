@@ -11,3 +11,7 @@ config ZMK_INPUT_PROCESSOR_SHIFT_SCROLL_AXIS
     bool "Shift で縦／横スクロールを切り替える input processor"
     default y
     depends on ZMK_POINTING
+
+config HELIX_DEBUG_PIN_POLL
+    bool "診断用: P0.17/P0.21 の変化をログに出す"
+    default n

@@ -15,3 +15,8 @@ endif()
 if(CONFIG_ZMK_INPUT_PROCESSOR_SHIFT_SCROLL_AXIS AND ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
   target_sources(app PRIVATE src/input_processors/input_processor_shift_scroll_axis.c)
 endif()
+
+# 診断用（ログ版ビルドだけ cmake-args で有効化）
+if(CONFIG_HELIX_DEBUG_PIN_POLL)
+  target_sources(app PRIVATE src/debug/pin_poll.c)
+endif()
