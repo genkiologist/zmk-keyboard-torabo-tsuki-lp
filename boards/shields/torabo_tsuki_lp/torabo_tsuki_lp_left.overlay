@@ -10,7 +10,8 @@
     >;
 };
 
-/* 11/19 23:08 田上さん: 左エンコーダを Helix 基板のエンコーダ用スルーホール（右下キーの1つ上）へ移設
+/* 11/19 23:10 左にもトラボを戻した（ピンは右と同じ、snippet input-trackball + input-split）。
+ * 11/19 23:08 田上さん: 左エンコーダを Helix 基板のエンコーダ用スルーホール（右下キーの1つ上）へ移設
  * → dtsi の既定 A=B6 (pro_micro 10)・B=B5 (pro_micro 9) をそのまま使う */
 &encoder_left {
     status = "okay";
