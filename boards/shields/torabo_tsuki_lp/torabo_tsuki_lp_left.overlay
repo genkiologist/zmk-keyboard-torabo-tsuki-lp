@@ -10,11 +10,9 @@
     >;
 };
 
-/* 拡張パネル(11/19): 左もボールなし、エンコーダ A=42 (P1.10)・B=34 (P1.02)・C=GND
- * （11/18 の 17/21 版から移動）。A/B の向きは右と同じ並び。 */
+/* 11/19 23:08 田上さん: 左エンコーダを Helix 基板のエンコーダ用スルーホール（右下キーの1つ上）へ移設
+ * → dtsi の既定 A=B6 (pro_micro 10)・B=B5 (pro_micro 9) をそのまま使う */
 &encoder_left {
-    a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     status = "okay";
 };
 

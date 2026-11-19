@@ -14,12 +14,7 @@
     col-offset = <7>;
 };
 
-/* 拡張パネル(11/19): エンコーダ A=42 (P1.10)・B=34 (P1.02)・C=GND */
-&encoder_right {
-    a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    status = "okay";
-};
+/* 11/19 23:08 田上さん: 右にはエンコーダを付けない（encoder_right は dtsi の既定で disabled） */
 
 /* 拡張パネル(11/19): ステータス LED=P0.31（43 は MOTION に使う） */
 &status_led {
