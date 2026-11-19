@@ -21,3 +21,7 @@ config ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT
     bool
     default y
     depends on DT_HAS_ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT_ENABLED
+
+config HELIX_DEBUG_PIN_POLL
+    bool "診断用: パネルのピン変化をログに出す"
+    default n

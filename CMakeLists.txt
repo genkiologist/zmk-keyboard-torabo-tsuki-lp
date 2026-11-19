@@ -23,3 +23,7 @@ endif()
 if(CONFIG_ZMK_BEHAVIOR_SENSOR_ROTATE_DETENT AND ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
   target_sources(app PRIVATE src/behaviors/behavior_sensor_rotate_detent.c)
 endif()
+
+if(CONFIG_HELIX_DEBUG_PIN_POLL)
+  target_sources(app PRIVATE src/debug/pin_poll.c)
+endif()
