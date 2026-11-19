@@ -5,14 +5,14 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;   /* Helix: CS=P0.31 */
+    cs-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;   /* 拡張パネル(11/19): CS=P0.21 */
 
     pointing_device: pointing_device@0 {
         status = "okay";
         compatible = "pixart,paw3222";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;   /* Helix: MOTION=P0.24 */
-        power-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;   /* Helix: センサー電源=P0.29 */
+        irq-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;   /* 拡張パネル(11/19): MOTION=43 (P1.11) */
+        power-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;   /* 拡張パネル(11/19): センサー電源=P0.24 */
     };
 };

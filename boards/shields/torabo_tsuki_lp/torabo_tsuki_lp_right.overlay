@@ -14,9 +14,16 @@
     col-offset = <7>;
 };
 
-/* rev3: Nの左下のエンコーダ（基板のエンコーダ端子 B6/B5） */
+/* 拡張パネル(11/19): エンコーダ A=42 (P1.10)・B=34 (P1.02)・C=GND */
 &encoder_right {
+    a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     status = "okay";
+};
+
+/* 拡張パネル(11/19): ステータス LED=P0.31（43 は MOTION に使う） */
+&status_led {
+    gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
 };
 
 // &scroll_inertia {
