@@ -10,12 +10,17 @@
     >;
 };
 
-/* 11/18 田上さん: 左ボールをやめ、追加IOの 17（P0.17）・21（P0.21）を左エンコーダに。
- * A/B の割り当ては仮（逆回転なら入れ替える）。ステップ数は右と同じ SIQ 前提の値のまま。 */
+/* 拡張パネル(11/19): 左もボールなし、エンコーダ A=42 (P1.10)・B=34 (P1.02)・C=GND
+ * （11/18 の 17/21 版から移動）。A/B の向きは右と同じ並び。 */
 &encoder_left {
-    a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     status = "okay";
+};
+
+/* 拡張パネル(11/19): ステータス LED=P0.31 */
+&status_led {
+    gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>;
 };
 
 /* Helix rev3 の列（ZMK 本体 helix_left.overlay と同じ） */
