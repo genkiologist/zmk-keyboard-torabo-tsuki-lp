@@ -3,4 +3,4 @@ include:
     shield: torabo_tsuki_lp_right
     snippet: "zmk-usb-logging split-central input-trackball input-listener"
     cmake-args: -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000 -DCONFIG_HELIX_DEBUG_PIN_POLL=y -DCONFIG_SENSOR_LOG_LEVEL_DBG=y -DCONFIG_INPUT_LOG_LEVEL_DBG=y
-    artifact-name: torabo_tsuki_lp_right_central_panel_log
+    artifact-name: torabo_tsuki_lp_right_central_panel_log_swap
