@@ -36,7 +36,13 @@
             &zip_xy_to_scroll_mapper
             &zip_scroll_snap // 斜めのスクロールを縦横軸にスナップさせる
             // &scroll_inertia // 慣性スクロール(iOS風の減速スクロール) - 無効化中
-            &zip_scroll_scaler 1 8 //スクロール速度を1/8にする。n/mにする場合は[n m]と書く。
+            // 2026-11-25: Windows の AutoHotkey（torabo-tsuki.ahk）の右ドラッグスクロールに合わせて 1/8 → 16/15。
+            //   ahk: カーソル 15px で1目盛り（WHEEL_DELTA 120）。
+            //   ZMK v0.3 + SMOOTH_SCROLLING: Windows は解像度倍率を16にするので、ホイール1単位 = 1/16目盛り。
+            //   ボール1カウント = カーソル1px（Windows のポインター速度 10/20・「精度を高める」オフの場合）とすると
+            //   15カウントで16単位 = 16/15。旧 1/8 は128カウントで1目盛り（ahk の約8.5倍遅い）。
+            //   ⚠️ macOS は解像度倍率を使わない想定のため、Mac では1単位が1目盛り扱いになり速くなる（未検証）。
+            &zip_scroll_scaler 16 15 // n/m 倍。戻すときは 1 8
         >;
     };
 };
